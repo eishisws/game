@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b47pegkbcn8sn"]
 
-[ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_a02cp"]
 
 [node name="World" type="Node2D" unique_id=1135968213]
 
-[node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_f3sb7")]
+[node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_a02cp")]
 position = Vector2(8, -9)
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1357395993]
+position = Vector2(-8, 9)
+position_smoothing_enabled = true
