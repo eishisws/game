@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://yupvlhqqy012"]
+
+[ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_ycv7e"]
+[ext_resource type="Script" uid="uid://c8ym2pls6jhj8" path="res://Scripts/door.gd" id="2_7nenk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_23l3u"]
+distance = 93.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6spt"]
+material = SubResource("StandardMaterial3D_a02cp")
+size = Vector3(10, 100, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u6spt"]
+normal = Vector2(1, 0)
+distance = -930.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hl07y"]
+
+[node name="Hotel" type="Node2D" unique_id=1135968213]
+
+[node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_ycv7e")]
+position = Vector2(-1139, 55)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1271688017]
+zoom = Vector2(0.925, 0.925)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1942464090]
+position = Vector2(1, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1755587310]
+position = Vector2(7, 110)
+shape = SubResource("WorldBoundaryShape2D_23l3u")
+debug_color = Color(2.5990605e-06, 0.59164864, 0.7475077, 0.41960785)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor" unique_id=756571741]
+position = Vector2(966, 1171.0001)
+scale = Vector2(921.0999, 23.119997)
+mesh = SubResource("BoxMesh_u6spt")
+
+[node name="LeftWall" type="Area2D" parent="." unique_id=708376319]
+position = Vector2(1, 39)
+script = ExtResource("2_7nenk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1167703729]
+position = Vector2(-1318, -64)
+shape = SubResource("WorldBoundaryShape2D_u6spt")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LeftWall" unique_id=790255477]
+position = Vector2(-2932, -915)
+scale = Vector2(1397.625, 1887.7499)
+mesh = SubResource("BoxMesh_hl07y")

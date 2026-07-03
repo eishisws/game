@@ -1,23 +1,37 @@
 [gd_scene format=3 uid="uid://b47pegkbcn8sn"]
 
 [ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://c8ym2pls6jhj8" path="res://Scripts/door.gd" id="2_go701"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_23l3u"]
-distance = 78.0
+distance = 93.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u6spt"]
 material = SubResource("StandardMaterial3D_a02cp")
-size = Vector3(10, 10, 1)
+size = Vector3(10, 100, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u6spt"]
 normal = Vector2(1, 0)
-distance = 1.0
+distance = -922.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_4inv0"]
+size = Vector3(50, 200, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qlvw"]
+size = Vector3(400, 400, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4inv0"]
+size = Vector2(161, 270.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_et65r"]
+size = Vector3(160, 271, 1)
 
 [node name="World" type="Node2D" unique_id=1135968213]
 
-[node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_a02cp")]
+[node name="Player" parent="." unique_id=1468233284 groups=["player"] instance=ExtResource("1_a02cp")]
+z_index = 1
 position = Vector2(8, -9)
 
 [node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=1357395993]
@@ -33,8 +47,8 @@ shape = SubResource("WorldBoundaryShape2D_23l3u")
 debug_color = Color(2.5990605e-06, 0.59164864, 0.7475077, 0.41960785)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Floor" unique_id=756571741]
-position = Vector2(106.000015, -2)
-scale = Vector2(67.799995, 0.6)
+position = Vector2(1081, 1134)
+scale = Vector2(921.0999, 23.119997)
 mesh = SubResource("BoxMesh_u6spt")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=443215317]
@@ -43,3 +57,27 @@ position = Vector2(1, 39)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1167703729]
 position = Vector2(-226, -1)
 shape = SubResource("WorldBoundaryShape2D_u6spt")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LeftWall" unique_id=1878140931]
+position = Vector2(-2152.0002, -2125.0002)
+scale = Vector2(15.18, 20.994997)
+mesh = SubResource("BoxMesh_4inv0")
+
+[node name="Hotel" type="StaticBody2D" parent="." unique_id=170006508]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Hotel" unique_id=390769239]
+position = Vector2(1663.0001, -995)
+scale = Vector2(2.3612542, -5.206333)
+mesh = SubResource("BoxMesh_0qlvw")
+
+[node name="Door" type="Area2D" parent="." unique_id=1151820214]
+script = ExtResource("2_go701")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=607878813]
+position = Vector2(1652, -123)
+shape = SubResource("RectangleShape2D_4inv0")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Door" unique_id=1629982728]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1650, -124)
+mesh = SubResource("BoxMesh_et65r")
