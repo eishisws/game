@@ -10,6 +10,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumps_left: int = max_jumps
 
 func _physics_process(delta: float) -> void:
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta

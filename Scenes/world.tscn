@@ -2,11 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_a02cp"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_23l3u"]
+distance = 78.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6spt"]
+material = SubResource("StandardMaterial3D_a02cp")
+size = Vector3(10, 10, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u6spt"]
+normal = Vector2(1, 0)
+distance = 1.0
+
 [node name="World" type="Node2D" unique_id=1135968213]
 
 [node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_a02cp")]
 position = Vector2(8, -9)
 
-[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1357395993]
+[node name="PlayerCamera" type="Camera2D" parent="Player" unique_id=1357395993]
 position = Vector2(-8, 9)
 position_smoothing_enabled = true
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1942464090]
+position = Vector2(1, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1755587310]
+position = Vector2(3, 73)
+shape = SubResource("WorldBoundaryShape2D_23l3u")
+debug_color = Color(2.5990605e-06, 0.59164864, 0.7475077, 0.41960785)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Floor" unique_id=756571741]
+position = Vector2(106.000015, -2)
+scale = Vector2(67.799995, 0.6)
+mesh = SubResource("BoxMesh_u6spt")
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=443215317]
+position = Vector2(1, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1167703729]
+position = Vector2(-226, -1)
+shape = SubResource("WorldBoundaryShape2D_u6spt")
