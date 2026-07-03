@@ -1,0 +1,12 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1783098149
+icon.svg::CompressedTexture2D::560141600835699340::1783097998::1783098095::1::::<><><>0<>0<>0d4ca19fb90b06912351f7b1e2d1cacf<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1783097998::0::1::::<><><>0<>0<><>::
+::res://Assets/::1783097998
+::res://Assets/Lili/::1783098095
+Lili-idle.png::CompressedTexture2D::4249459055702622185::1783097998::1783098095::1::::<><><>0<>0<>6d2ff6d995ab3e09b132c532af4da988<>res://.godot/imported/Lili-idle.png-7a7237e8d5df3b32a6fdae1736b6ec0c.ctex::
+::res://Scenes/::1783098149
+player.tscn::PackedScene::1882222007034518709::1783097998::0::1::::<><><>0<>0<><>::uid://ikmf3332srj3::::res://Scripts/player.gd
+world.tscn::PackedScene::4488875466029872413::1783098149::0::1::::<><><>0<>0<><>::uid://1206lhb4472h::::res://Scenes/player.tscn
+::res://Scripts/::1783097998
+player.gd::GDScript::582893574744906962::1783097998::0::1::::<>CharacterBody2D<><>0<>0<><>::
