@@ -12,6 +12,11 @@ extends CharacterBody2D
 
 @export var short_hop_multiplier: float = 0.5  
 
+@export var has_key_card: bool = false
+
+func give_key_card() -> void:
+	has_key_card = true
+
 var jumps_left: int = max_jumps
 var coyote_timer: float = 0.0
 var jump_buffer_timer: float = 0.0

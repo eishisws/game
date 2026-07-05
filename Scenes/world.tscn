@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b47pegkbcn8sn"]
 
+[ext_resource type="Script" uid="uid://bh5i7b4wp8mqc" path="res://Scenes/world.gd" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Script" uid="uid://c8ym2pls6jhj8" path="res://Scripts/door.gd" id="2_go701"]
 
@@ -13,7 +14,7 @@ material = SubResource("StandardMaterial3D_a02cp")
 size = Vector3(10, 100, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u6spt"]
-normal = Vector2(1, 0)
+normal = Vector2(0.9952871, 0.09697217)
 distance = -922.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_4inv0"]
@@ -29,6 +30,7 @@ size = Vector2(161, 270.5)
 size = Vector3(160, 271, 1)
 
 [node name="World" type="Node2D" unique_id=1135968213]
+script = ExtResource("1_5a7ea")
 
 [node name="Player" parent="." unique_id=1468233284 groups=["player"] instance=ExtResource("1_a02cp")]
 z_index = 1
@@ -55,11 +57,11 @@ mesh = SubResource("BoxMesh_u6spt")
 position = Vector2(1, 39)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1167703729]
-position = Vector2(-226, -1)
+position = Vector2(-857, 45)
 shape = SubResource("WorldBoundaryShape2D_u6spt")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="LeftWall" unique_id=1878140931]
-position = Vector2(-2152.0002, -2125.0002)
+position = Vector2(-2152.0002, -2104)
 scale = Vector2(15.18, 20.994997)
 mesh = SubResource("BoxMesh_4inv0")
 
@@ -71,13 +73,19 @@ scale = Vector2(2.3612542, -5.206333)
 mesh = SubResource("BoxMesh_0qlvw")
 
 [node name="Door" type="Area2D" parent="." unique_id=1151820214]
+position = Vector2(1653, -186)
 script = ExtResource("2_go701")
+target_scene = "res://Scenes/lobby.tscn"
+spawn_point_name = "lobby"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=607878813]
-position = Vector2(1652, -123)
+position = Vector2(-1, 74)
 shape = SubResource("RectangleShape2D_4inv0")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Door" unique_id=1629982728]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1650, -124)
+position = Vector2(2, 68)
 mesh = SubResource("BoxMesh_et65r")
+
+[node name="hotel_entrance" type="Marker2D" parent="." unique_id=1914929938]
+position = Vector2(1653, -76)
