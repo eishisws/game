@@ -58,6 +58,10 @@ size = Vector2(20, 23.406837)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xddgc"]
 size = Vector2(254, 346)
 
+[sub_resource type="SphereMesh" id="SphereMesh_0qlvw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1v1hm"]
+
 [node name="Hotel" type="Node2D" unique_id=1135968213]
 script = ExtResource("1_u1o2k")
 
@@ -209,3 +213,18 @@ mesh = SubResource("BoxMesh_shqkp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Elevator" unique_id=1973979505]
 position = Vector2(2, -120)
 shape = SubResource("RectangleShape2D_xddgc")
+
+[node name="UpButton" type="MeshInstance2D" parent="Elevator" unique_id=459031202]
+position = Vector2(-150.00002, -78)
+scale = Vector2(-20.917526, 22.125927)
+mesh = SubResource("SphereMesh_0qlvw")
+
+[node name="DownButton" type="MeshInstance2D" parent="Elevator" unique_id=1420083998]
+position = Vector2(-149.18425, -39)
+scale = Vector2(-21.286428, 22.125927)
+mesh = SubResource("SphereMesh_0qlvw")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="Elevator" unique_id=1148940558]
+position = Vector2(-149, -58.000004)
+scale = Vector2(29.249996, 3.2500048)
+mesh = SubResource("BoxMesh_1v1hm")
