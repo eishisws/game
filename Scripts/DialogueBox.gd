@@ -2,6 +2,8 @@ extends CanvasLayer
 
 signal dialogue_started
 signal dialogue_finished
+signal typing_started
+signal typing_stopped
 
 var _panel: PanelContainer
 var _name_label: Label
@@ -84,6 +86,7 @@ func _show_line(line: String) -> void:
 	_is_typing = true
 	_prompt_label.visible = false
 	set_process(true)
+	typing_started.emit()
 
 
 func _process(delta: float) -> void:
@@ -96,6 +99,7 @@ func _process(delta: float) -> void:
 			if _char_index >= _full_text.length():
 				_is_typing = false
 				_prompt_label.visible = true
+				typing_stopped.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -108,11 +112,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _advance() -> void:
 	if _is_typing:
-		# Skip the typewriter effect, show the full line immediately.
 		_is_typing = false
 		_char_index = _full_text.length()
 		_text_label.text = _full_text
 		_prompt_label.visible = true
+		typing_stopped.emit()
 		return
 	_line_index += 1
 	if _line_index >= _lines.size():

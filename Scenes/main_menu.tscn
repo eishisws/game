@@ -185,6 +185,28 @@ value = 1.0
 script = ExtResource("2_1ehe0")
 audio_bus_name = "Music"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="Options/VBoxContainer" unique_id=1043559942]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Options/VBoxContainer/HBoxContainer3" unique_id=1398483644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = " Dialogue SFX "
+
+[node name="AudioControl" type="HSlider" parent="Options/VBoxContainer/HBoxContainer3" unique_id=906598802]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxLine_u6spt")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_23l3u")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_23l3u")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_1ehe0")
+audio_bus_name = "Dialogue"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options/VBoxContainer" unique_id=1812132790]
 layout_mode = 2
 theme_override_constants/separation = 190
@@ -210,4 +232,5 @@ bus = &"Music"
 [connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_options_pressed"]
 [connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer/AudioControl" to="Options/VBoxContainer/HBoxContainer/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/VBoxContainer/HBoxContainer3/AudioControl" to="Options/VBoxContainer/HBoxContainer3/AudioControl" method="_on_value_changed"]
 [connection signal="toggled" from="Options/VBoxContainer/HBoxContainer2/FullscreenControl" to="Options/VBoxContainer/HBoxContainer2/FullscreenControl" method="_on_toggled"]

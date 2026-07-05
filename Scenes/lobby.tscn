@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_y0s6v"]
 [ext_resource type="Script" uid="uid://c8ym2pls6jhj8" path="res://Scripts/door.gd" id="2_u1o2k"]
 [ext_resource type="Script" uid="uid://cmiia5icmi1iu" path="res://Scripts/Reginald.gd" id="4_avk8s"]
+[ext_resource type="AudioStream" uid="uid://dh4a688o20d6x" path="res://Assets/Reginald/talk.wav" id="5_jigxi"]
+[ext_resource type="AudioStream" uid="uid://b2ydenbklyuo2" path="res://Assets/Sound/ikoliks_aj-jazz-lounge-elevator-music-332339.mp3" id="5_ruji2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_23l3u"]
 distance = 93.0
@@ -152,6 +154,11 @@ position = Vector2(32, -159)
 scale = Vector2(34.352097, 28.119982)
 shape = SubResource("RectangleShape2D_avk8s")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Reginald/Area2D" unique_id=1814358503]
+stream = ExtResource("5_jigxi")
+pitch_scale = 0.7
+bus = &"Dialogue"
+
 [node name="Body" type="MeshInstance2D" parent="Reginald" unique_id=1349569889]
 position = Vector2(-0.11090958, 0.6873504)
 scale = Vector2(0.06115004, -1.0977412)
@@ -161,3 +168,8 @@ mesh = SubResource("CapsuleMesh_4inv0")
 position = Vector2(-0.110909596, 1.924581)
 scale = Vector2(0.050153267, 0.6651571)
 mesh = SubResource("SphereMesh_4inv0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=933957015]
+stream = ExtResource("5_ruji2")
+autoplay = true
+bus = &"Music"
