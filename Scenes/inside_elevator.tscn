@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://tapajc270mvw"]
+
+[ext_resource type="PackedScene" uid="uid://1206lhb4472h" path="res://Scenes/player.tscn" id="1_c58g7"]
+[ext_resource type="AudioStream" uid="uid://b2ydenbklyuo2" path="res://Assets/Sound/ikoliks_aj-jazz-lounge-elevator-music-332339.mp3" id="2_xrkkg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4inv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4inv0"]
+size = Vector2(602.625, 549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qlvw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qlvw"]
+size = Vector2(678.75, 1059)
+
+[node name="inside_elevator" type="Node2D" unique_id=1302771844]
+
+[node name="Player" parent="." unique_id=1468233284 instance=ExtResource("1_c58g7")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1767163455]
+
+[node name="center" type="Marker2D" parent="." unique_id=836698068]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2006567856]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=996739032]
+position = Vector2(-8.000015, 661.75)
+scale = Vector2(586, 1348.5)
+mesh = SubResource("BoxMesh_4inv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=387113739]
+position = Vector2(-10.6875, 262.5)
+shape = SubResource("RectangleShape2D_4inv0")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=671552353]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D2" unique_id=1689305396]
+position = Vector2(4.000005, -1025.75)
+scale = Vector2(568.00006, 1080.4999)
+mesh = SubResource("BoxMesh_4inv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1969424716]
+position = Vector2(4.375, -760)
+shape = SubResource("RectangleShape2D_4inv0")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1244220854]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D3" unique_id=2134554520]
+position = Vector2(869, -123.50003)
+scale = Vector2(1175.9999, 2929)
+mesh = SubResource("BoxMesh_0qlvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1572990881]
+position = Vector2(620.25, -1)
+shape = SubResource("RectangleShape2D_0qlvw")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1743857049]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D4" unique_id=701826108]
+position = Vector2(-889.5, -121.49992)
+scale = Vector2(1220.9999, 2915)
+mesh = SubResource("BoxMesh_0qlvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1708576988]
+position = Vector2(-619.375, -8.5)
+shape = SubResource("RectangleShape2D_0qlvw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=36910526]
+stream = ExtResource("2_xrkkg")
+volume_db = -25.544
+autoplay = true
+bus = &"Music_Elevator"
